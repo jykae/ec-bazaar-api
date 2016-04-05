@@ -84,6 +84,7 @@ Bazaar.Api.v2.addCollection(Materials, {
           }
         }
       }
+      // TODO: Override action, get user's materials 
     }
   }
 });
