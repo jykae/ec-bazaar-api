@@ -1,8 +1,11 @@
-// Global API configuration
-API = {};
+// Application namespace
+const Bazaar = {};
+
+// Bazaar API
+Bazaar.Api = {};
 
 // Version 1
-API.v2 = new Restivus({
+Bazaar.Api.v2 = new Restivus({
   apiPath: 'api/',
   version: 'v2',
   defaultHeaders: {
@@ -15,4 +18,6 @@ API.v2 = new Restivus({
 
 // Add Restivus Swagger configuration
 // - meta, definitions, params, tags
-API.v2.swagger = {};
+Bazaar.Api.v2.swagger = {};
+
+export { Bazaar };
