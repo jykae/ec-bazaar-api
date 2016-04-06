@@ -40,18 +40,24 @@ const MaterialsSchema = {
           maxLength: 2048
         },
         "language": {
-          type: "string" // ISO 639-1 language codes
+          type: { "enum": [ "fi", "en", "sv" ] } // Support 3 lang, ISO 639-1
         },
         "publisher_data": {
           type: "string"
         },
         "metadata": {
           type: "array",
-          items: "string"
+          items: {"$ref": "#/definitions/metadata"}
         },
         "tags": {
           type: "array",
-          items: "string"
+          maxItems: 32,
+          items: [
+            {
+              type: "string",
+              maxLength: 64
+            }
+          ]
         },
         "images": {
           type: "array",
@@ -69,4 +75,4 @@ const materialsJSONSchema = new JSONSchema(MaterialsSchema);
 Materials.schema = materialsJSONSchema.toSimpleSchema();
 Materials.attachSchema(Materials.schema);
 
-export { MaterialsSchema };
+export { Materials, MaterialsSchema };
