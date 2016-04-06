@@ -56,12 +56,12 @@ Bazaar.Api.v2.swagger.params = {
       $ref: "#/definitions/material"
     }
   },
-  country: {
-    name: "country",
-    in: "path",
+  countryCode: {
+    name: "countryCode",
+    in: "query",
     description: "Country code ISO-639-1. Enum: ['global','en','fi','sv'].",
     required: true,
-    type: "string"
+    type: { "enum": [ "global", "en", "fi", "sv" ] }
   }
 };
 
