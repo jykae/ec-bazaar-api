@@ -10,7 +10,7 @@ const MetadataSchema = {
       ],
       properties: {
         "language": {
-          type: { "enum": [ "fi", "en", "sv", "global" ] }
+          type: { "enum": [ "global", "en", "fi", "sv" ] }
         },
         "educationLevel": {
           type: "integer",
@@ -36,4 +36,4 @@ const metadataJSONSchema = new JSONSchema(MetadataSchema);
 Metadata.schema = metadataJSONSchema.toSimpleSchema();
 Metadata.attachSchema(Metadata.schema);
 
-export { MetadataSchema };
+export { Metadata, MetadataSchema };
