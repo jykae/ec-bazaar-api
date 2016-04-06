@@ -40,7 +40,7 @@ const MaterialsSchema = {
           maxLength: 2048
         },
         "language": {
-          type: { "enum": [ "fi", "en", "sv" ] } // Support 3 lang, ISO 639-1
+          type: { "enum": [ "fi", "en", "sv" ] } // TODO: Use "bshamblen:iso-languages" package!!
         },
         "publisher_data": {
           type: "string"

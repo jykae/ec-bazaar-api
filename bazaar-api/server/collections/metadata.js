@@ -10,7 +10,7 @@ const MetadataSchema = {
       ],
       properties: {
         "language": {
-          type: { "enum": [ "global", "en", "fi", "sv" ] }
+          type: { "enum": [ "global", "en", "fi", "sv" ] } // TODO: Use "bshamblen:iso-languages" package!!
         },
         "educationLevel": {
           type: "integer",

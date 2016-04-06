@@ -61,7 +61,7 @@ Bazaar.Api.v2.swagger.params = {
     in: "query",
     description: "Country code ISO-639-1. Enum: ['global','en','fi','sv'].",
     required: true,
-    type: { "enum": [ "global", "en", "fi", "sv" ] }
+    type: { "enum": [ "global", "en", "fi", "sv" ] } // TODO: Use "bshamblen:iso-languages" package!!
   }
 };
 

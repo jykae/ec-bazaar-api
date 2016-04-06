@@ -85,7 +85,7 @@ Bazaar.Api.v2.addCollection(Materials, {
           }
         }
       }
-      // TODO: Override action, get user's materials
+      // TODO: Override action, get user's materials, when authentication is in place.
     }
   }
 });
