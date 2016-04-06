@@ -90,57 +90,60 @@ Bazaar.Api.v2.addCollection(Materials, {
   }
 });
 
-// GET ALL endpoint for Metadata
-Bazaar.Api.v2.addCollection(Metadata, {
-  routeOptions: {
-    authRequired: false
-  },
-  endpoints: {
-    getAll: {
-      swagger: {
-        tags: [
-          Bazaar.Api.v2.swagger.tags.material
-        ],
-        description: "Returns all available metadata.",
-        responses: {
-          "200": {
-            description: "List of metadata."
-          }
-        }
-      }
-    }
-  }
-});
-
-// GET metadata by country
-// Maps to: /api/v2/metadata/:country
-Bazaar.Api.v2.addRoute('metadata/:country', {authRequired: false}, {
+// GET ALL metadata
+// Parameters: countryCode, optional
+// Example: /api/v2/metadata/?countryCode=fi
+Bazaar.Api.v2.addRoute('metadata/', {authRequired: false}, {
   get: {
     swagger: {
       tags: [
         Bazaar.Api.v2.swagger.tags.material
       ],
-      description: "Returns all available metadata by country.",
+      description: "Returns all available metadata, optional filtering by countryCode.",
       parameters: [
         Bazaar.Api.v2.swagger.params.country
       ],
       responses: {
         "200": {
-          description: "List of metadata by country parameter."
+          description: "List of metadata."
         }
       }
     },
     action: function () {
-      // Get organizationId from URL parameters
-      const countryCode = this.urlParams.country;
-      // Fetch all departments of the given organization
-      const metadata = Metadata.find({ "language": countryCode }).fetch();
+      // Init response
+      const response = {};
 
-      // Build response
-      const response = {
-        status: "success",
-        data: metadata
+      // Check if queryParams are given
+      if(this.queryParams && this.queryParams.countryCode) {
+
+        // Get countryCode from Query parameters
+        const countryCode = this.queryParams.countryCode;
+        // Allowed values for countryCode
+        const countryCodesAllowed = ['global', 'en', 'fi', 'sv'];
+
+        // Check countryCode is allowed
+        if( _.contains(countryCodesAllowed, countryCode) ) {
+
+          // Fetch metadata filtered by countryCode
+          response.status = "success";
+          response.data = Metadata.find({ "language": countryCode }).fetch();
+
+        } else {
+
+          // Throw status 404 with description
+          response.status = "404";
+          response.description = "countryCode allowed values are ['global', 'en', 'fi', 'sv']";
+
+        }
+      } else {
+
+        // Fetch all metadata
+        response.status = "success";
+        response.data = Metadata.find().fetch();
+
       }
+
+      // Return result
       return response;
     }
   }
