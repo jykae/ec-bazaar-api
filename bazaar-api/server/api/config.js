@@ -1,4 +1,4 @@
-import { MaterialsSchema } from '/server/collections/schema';
+import { MaterialsSchema } from '/server/collections/materials';
 
 // Application namespace
 const Bazaar = {};
@@ -55,6 +55,13 @@ Bazaar.Api.v2.swagger.params = {
     schema: {
       $ref: "#/definitions/material"
     }
+  },
+  country: {
+    name: "country",
+    in: "path",
+    description: "Country code ISO-639-1. Enum: ['global','en','fi','sv'].",
+    required: true,
+    type: "string"
   }
 };
 
