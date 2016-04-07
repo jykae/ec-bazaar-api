@@ -93,7 +93,7 @@ Bazaar.Api.v2.addCollection(Materials, {
 // GET ALL metadata
 // Parameters: countryCode, optional
 // Example: /api/v2/metadata/?countryCode=fi
-Bazaar.Api.v2.addRoute('metadata/', {authRequired: false}, {
+Bazaar.Api.v2.addRoute('metadata/', {authRequired: true}, {
   get: {
     swagger: {
       tags: [

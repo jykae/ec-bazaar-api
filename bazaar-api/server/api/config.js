@@ -1,3 +1,4 @@
+import CryptoJS from 'crypto-js';
 import { MaterialsSchema } from '/server/collections/materials';
 
 // Application namespace
@@ -13,7 +14,30 @@ Bazaar.Api.v2 = new Restivus({
   defaultHeaders: {
     'Content-Type': 'application/json'
   },
-  useDefaultAuth: false,
+  auth: {
+    user: function() {
+      // Custom authentication
+
+      // Parse authentication header
+      // Authentication: CMS example_client:8a5c839290690a145fc8f128aec4fba0970a004a230fad856d775ea7b528da80
+      const authHeader = this.request.headers['authentication'];
+
+      if(authHeader) {
+        // Split to apiName(CMS/LMS) and clientAuth
+        let clientAuth = authHeader.split(' ')[1];
+        // Split to clientId and clientSecret
+        clientAuth = clientAuth.split(':');
+
+        return {
+          // TODO: Implement auth check as in spec
+          user: Meteor.users.findOne({username:clientAuth[0]})
+
+          //userId: clientAuth[0],
+          //token: Accounts._hashLoginToken(clientAuth[1])
+        };
+      }
+    }
+  },
   prettyJson: true,
   enableCors: true
 });
