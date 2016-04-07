@@ -24,3 +24,5 @@ bshamblen:iso-languages
 aldeed:simple-schema
 aldeed:collection2
 underscore
+accounts-base
+accounts-password
