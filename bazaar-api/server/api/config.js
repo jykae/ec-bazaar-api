@@ -32,6 +32,7 @@ Bazaar.Api.v2 = new Restivus({
           // TODO: Implement auth check as in spec
           user: Meteor.users.findOne({username:clientAuth[0]})
 
+          // Checks the auth token exists 
           //userId: clientAuth[0],
           //token: Accounts._hashLoginToken(clientAuth[1])
         };

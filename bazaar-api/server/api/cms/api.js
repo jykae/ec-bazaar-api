@@ -6,7 +6,7 @@ import { Metadata } from '/server/collections/metadata';
 // /api/items/:id for the Items collection
 Bazaar.Api.v2.addCollection(Materials, {
   routeOptions: {
-    authRequired: false
+    authRequired: true
   },
   endpoints: {
     get: {
