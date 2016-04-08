@@ -5,7 +5,6 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "crypto-js": "^3.1.6",
     "meteor-node-stubs": "~0.2.0"
   }
 }
