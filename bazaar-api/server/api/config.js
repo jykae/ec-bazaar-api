@@ -69,7 +69,7 @@ Bazaar.Api.v2.swagger.params = {
 
 // Add swagger tags
 Bazaar.Api.v2.swagger.tags = {
-  material: "Materials"
+  cms: "CMS"
 };
 
 // Init swagger definitions

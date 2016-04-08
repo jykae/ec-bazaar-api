@@ -12,7 +12,7 @@ Bazaar.Api.v2.addCollection(Materials, {
     get: {
       swagger: {
         tags: [
-          Bazaar.Api.v2.swagger.tags.material
+          Bazaar.Api.v2.swagger.tags.cms
         ],
         description: "Get one material with given ID.",
         parameters: [
@@ -28,7 +28,7 @@ Bazaar.Api.v2.addCollection(Materials, {
     post: {
       swagger: {
         tags: [
-          Bazaar.Api.v2.swagger.tags.material
+          Bazaar.Api.v2.swagger.tags.cms
         ],
         description: "Create a material.",
         parameters: [
@@ -44,7 +44,7 @@ Bazaar.Api.v2.addCollection(Materials, {
     put: {
       swagger: {
         tags: [
-          Bazaar.Api.v2.swagger.tags.material
+          Bazaar.Api.v2.swagger.tags.cms
         ],
         description: "Update material with given ID.",
         parameters: [
@@ -60,7 +60,7 @@ Bazaar.Api.v2.addCollection(Materials, {
     delete: {
       swagger: {
         tags: [
-          Bazaar.Api.v2.swagger.tags.material
+          Bazaar.Api.v2.swagger.tags.cms
         ],
         description: "Delete material with given ID.",
         parameters: [
@@ -76,7 +76,7 @@ Bazaar.Api.v2.addCollection(Materials, {
     getAll: {
       swagger: {
         tags: [
-          Bazaar.Api.v2.swagger.tags.material
+          Bazaar.Api.v2.swagger.tags.cms
         ],
         description: "Returns authenticated user's materials.",
         responses: {
@@ -97,7 +97,7 @@ Bazaar.Api.v2.addRoute('metadata/', {authRequired: true}, {
   get: {
     swagger: {
       tags: [
-        Bazaar.Api.v2.swagger.tags.material
+        Bazaar.Api.v2.swagger.tags.cms
       ],
       description: "Returns all available metadata, optional filtering by countryCode.",
       parameters: [
