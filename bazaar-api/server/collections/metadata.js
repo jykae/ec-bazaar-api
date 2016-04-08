@@ -3,14 +3,14 @@ const Metadata = new Mongo.Collection('metadata');
 // Materials JSON schema
 const MetadataSchema = {
   definitions: {
-    "material": {
+    "metadata": {
       type: "object",
       required: [
         "language"
       ],
       properties: {
         "language": {
-          type: { "enum": [ "global", "en", "fi", "sv" ] } // TODO: Use "bshamblen:iso-languages" package!!
+          type: "string" // TODO: Use "bshamblen:iso-languages" package!!
         },
         "educationLevel": {
           type: "integer",

@@ -1,4 +1,5 @@
 import { MaterialsSchema } from '/server/collections/materials';
+import { MetadataSchema } from '/server/collections/metadata';
 
 // Application namespace
 const Bazaar = {};
@@ -28,7 +29,7 @@ Bazaar.Api.v2.swagger.meta = {
     version: "2.0",
     title: "EduCloud Bazaar API",
     description: "EduCloud Bazaar REST API",
-    termsOfService: "https://dashboard.digipalvelutehdas.fi/terms/",
+    termsOfService: "https://bazaar.educloudalliance.org/terms/",
     contact: {
       name: "Ville Jyrkkä"
     },
@@ -61,7 +62,8 @@ Bazaar.Api.v2.swagger.params = {
     in: "query",
     description: "Country code ISO-639-1. Enum: ['global','en','fi','sv'].",
     required: true,
-    type: { "enum": [ "global", "en", "fi", "sv" ] } // TODO: Use "bshamblen:iso-languages" package!!
+    type: "string",
+    enum: [ "global", "en", "fi", "sv" ] // TODO: Use "bshamblen:iso-languages" package!!
   }
 };
 
@@ -75,6 +77,9 @@ Bazaar.Api.v2.swagger.definitions = {};
 
 // Extend definitions with MaterialsSchema definitions
 _.extend(Bazaar.Api.v2.swagger.definitions, MaterialsSchema.definitions);
+
+// Extend definitions with MaterialsSchema definitions
+_.extend(Bazaar.Api.v2.swagger.definitions, MetadataSchema.definitions);
 
 // Generate Swagger to route /api/v2/swagger.json
 Bazaar.Api.v2.addSwagger('swagger.json');

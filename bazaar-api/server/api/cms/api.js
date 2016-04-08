@@ -101,7 +101,7 @@ Bazaar.Api.v2.addRoute('metadata/', {authRequired: true}, {
       ],
       description: "Returns all available metadata, optional filtering by countryCode.",
       parameters: [
-        Bazaar.Api.v2.swagger.params.country
+        Bazaar.Api.v2.swagger.params.countryCode
       ],
       responses: {
         "200": {
