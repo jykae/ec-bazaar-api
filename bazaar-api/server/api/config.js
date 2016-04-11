@@ -1,5 +1,6 @@
 import { MaterialsSchema } from '/server/collections/materials';
 import { MetadataSchema } from '/server/collections/metadata';
+import { ImageSchema } from '/server/collections/images';
 
 // Application namespace
 const Bazaar = {};
@@ -69,17 +70,16 @@ Bazaar.Api.v2.swagger.params = {
 
 // Add swagger tags
 Bazaar.Api.v2.swagger.tags = {
-  cms: "CMS"
+  cms: "CMS",
+  lms: "LMS"
 };
 
 // Init swagger definitions
-Bazaar.Api.v2.swagger.definitions = {};
-
-// Extend definitions with MaterialsSchema definitions
-_.extend(Bazaar.Api.v2.swagger.definitions, MaterialsSchema.definitions);
-
-// Extend definitions with MaterialsSchema definitions
-_.extend(Bazaar.Api.v2.swagger.definitions, MetadataSchema.definitions);
+Bazaar.Api.v2.swagger.definitions = {
+  material: MaterialsSchema.material,
+  metadata: MetadataSchema.metadata,
+  image: ImageSchema.image
+};
 
 // Generate Swagger to route /api/v2/swagger.json
 Bazaar.Api.v2.addSwagger('swagger.json');
