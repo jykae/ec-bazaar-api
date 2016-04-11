@@ -78,14 +78,34 @@ Bazaar.Api.v2.addCollection(Materials, {
         tags: [
           Bazaar.Api.v2.swagger.tags.cms
         ],
-        description: "Returns authenticated user's materials.",
+        description: "Returns publisher's own materials.",
         responses: {
           "200": {
             description: "List of materials."
           }
         }
+      },
+      action: function () {
+        // Init response
+        const response = {};
+
+        // Get publisherId from authentication headers
+        const publisherId = this.request.headers['x-user-id'];
+
+        // Check publisherId exists
+        if( publisherId ) {
+          // Fetch materials by publisherId
+          response.status = "success";
+          response.data = Materials.find({ "material.publisherId": publisherId }).fetch();
+        } else {
+          // Throw status 404 with description
+          response.status = "404";
+          response.description = "User ID does not exist.";
+        }
+
+        // Return result
+        return response;
       }
-      // TODO: Override action, get user's materials, when authentication is in place.
     }
   }
 });
