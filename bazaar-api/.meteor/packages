@@ -17,12 +17,13 @@ standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-nimble:restivus
-apinf:restivus-swagger
+aldeed:collection2
+aldeed:simple-schema
 bshamblen:json-simple-schema
 bshamblen:iso-languages
-aldeed:simple-schema
-aldeed:collection2
+nimble:restivus
+apinf:restivus-swagger
+
 underscore
 accounts-base
 accounts-password
