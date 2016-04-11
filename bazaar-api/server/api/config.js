@@ -37,6 +37,18 @@ Bazaar.Api.v2.swagger.meta = {
     license: {
       name: "MIT"
     }
+  },
+  securityDefinitions: {
+    userId: {
+      type: "apiKey",
+      name: "X-User-Id",
+      in: "header"
+    },
+    authToken: {
+      type: "apiKey",
+      name: "X-Auth-Token",
+      in: "header"
+    }
   }
 };
 
