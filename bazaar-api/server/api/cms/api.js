@@ -48,7 +48,8 @@ Bazaar.Api.v2.addCollection(Materials, {
         ],
         description: "Update material with given ID.",
         parameters: [
-          Bazaar.Api.v2.swagger.params.materialId
+          Bazaar.Api.v2.swagger.params.materialId,
+          Bazaar.Api.v2.swagger.params.material
         ],
         responses: {
           "200": {
