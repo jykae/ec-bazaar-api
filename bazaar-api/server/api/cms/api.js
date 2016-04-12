@@ -195,6 +195,27 @@ Bazaar.Api.v2.addRoute('cms/validate', {authRequired: true}, {
       // Init response
       const response = {};
 
+      // Get authToken from headers
+      const userId = this.request.headers['x-user-id'];
+      const authToken = this.request.headers['x-auth-token'];
+
+      // Get existing token
+      const validToken = Meteor.users.findOne({"_id": userId}).services.resume.loginTokens[0].hashedToken;
+
+      if( Accounts._hashLoginToken(authToken) === validToken ) {
+        // Get user
+        const authenticatedUser = Meteor.users.findOne({"_id": userId});
+
+        // Write response
+        response.status = "200";
+        response.data = {
+          user: authenticatedUser
+        };
+      } else {
+        response.status = "401";
+        response.description = "Invalid token or user ID";
+      }
+
       // Return result
       return response;
     }
