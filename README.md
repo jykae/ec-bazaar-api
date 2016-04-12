@@ -1,9 +1,18 @@
 # EduCloud Bazaar API
+
 API v2 reference implementation.
 
-Implemented with [Meteor](https://www.meteor.com/)
+## Table of Contents
 
-## Packages
+- [Documentation](#documentation)
+- [Implementation](#implementation)
+- [Authentication](#authentication)
+- [Quick Start](#quick-start)
+- [Terminology](#terminology)
+
+## Implementation
+
+Implemented with [Meteor](https://www.meteor.com/)
 
 * [meteor-restivus](https://github.com/kahmali/meteor-restivus)
 * [restivus-swagger](https://github.com/apinf/restivus-swagger)
@@ -29,3 +38,7 @@ curl http://bazaardev.educloudalliance.org/api/v2/logout -X POST -H "X-Auth-Toke
 ```
 curl -H "X-Auth-Token: <authToken>" -H "X-User-Id: <userId>" https://bazaardev.educloudalliance.org/api/v2/materials
 ```
+
+## Documentation
+
+Swagger UI for trying out API: https://bazaardev.educloudalliance.org/api-docs
