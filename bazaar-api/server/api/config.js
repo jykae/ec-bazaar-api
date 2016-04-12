@@ -3,7 +3,11 @@ import { MetadataSchema } from '/server/collections/metadata';
 import { ImageSchema } from '/server/collections/images';
 
 // Application namespace
-const Bazaar = {};
+const Bazaar = {
+  protocol: 'https',
+  baseUrl: 'bazaardev.educloudalliance.org',
+  demoProductId: 'new-cool-product_248' // Showcase demo product for /lms/view
+};
 
 // Bazaar API
 Bazaar.Api = {};
