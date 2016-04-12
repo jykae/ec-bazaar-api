@@ -4,11 +4,9 @@ API v2 reference implementation.
 
 ## Table of Contents
 
-- [Documentation](#documentation)
 - [Implementation](#implementation)
 - [Authentication](#authentication)
-- [Quick Start](#quick-start)
-- [Terminology](#terminology)
+- [Documentation](#documentation)
 
 ## Implementation
 
