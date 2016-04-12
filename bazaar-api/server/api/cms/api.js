@@ -5,6 +5,7 @@ import { Metadata } from '/server/collections/metadata';
 // Generates: GET, POST on /api/items and GET, PUT, DELETE on
 // /api/items/:id for the Items collection
 Bazaar.Api.v2.addCollection(Materials, {
+  path: 'cms/materials',
   routeOptions: {
     authRequired: true
   },
@@ -114,7 +115,7 @@ Bazaar.Api.v2.addCollection(Materials, {
 // GET ALL metadata
 // Parameters: countryCode, optional
 // Example: /api/v2/metadata/?countryCode=fi
-Bazaar.Api.v2.addRoute('metadata/', {authRequired: true}, {
+Bazaar.Api.v2.addRoute('cms/metadata/', {authRequired: true}, {
   get: {
     swagger: {
       tags: [
@@ -163,6 +164,36 @@ Bazaar.Api.v2.addRoute('metadata/', {authRequired: true}, {
         response.data = Metadata.find().fetch();
 
       }
+
+      // Return result
+      return response;
+    }
+  }
+});
+
+// Validate token
+// Required headers: X-User-Id, X-Auth-Token
+// Example: /api/v2/cms/validate
+Bazaar.Api.v2.addRoute('cms/validate', {authRequired: true}, {
+  get: {
+    swagger: {
+      tags: [
+        Bazaar.Api.v2.swagger.tags.cms
+      ],
+      description: "Validate user authToken for viewing material.",
+      parameters: [],
+      responses: {
+        "200": {
+          description: "Successful validation."
+        },
+        "401": {
+          description: "Token timeout or token already used."
+        }
+      }
+    },
+    action: function () {
+      // Init response
+      const response = {};
 
       // Return result
       return response;
