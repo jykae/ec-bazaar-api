@@ -9,6 +9,11 @@ const Bazaar = {
   demoProductId: 'new-cool-product_248' // Showcase demo product for /lms/view
 };
 
+// Accounts config
+Accounts.config({
+  loginExpirationInDays: 1
+});
+
 // Bazaar API
 Bazaar.Api = {};
 
@@ -68,7 +73,7 @@ Bazaar.Api.v2.swagger.params = {
   material: {
     name: "material",
     in: "body",
-    description: "Material to add.",
+    description: "Material object.",
     required: true,
     schema: {
       $ref: "#/definitions/material"
