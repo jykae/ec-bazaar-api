@@ -148,7 +148,7 @@ Bazaar.Api.v2.addRoute('cms/metadata/', {authRequired: true}, {
 
           // Fetch metadata filtered by countryCode
           response.status = "success";
-          response.data = Metadata.find({ "language": countryCode }).fetch();
+          response.data = Metadata.find({ "metadata.language": countryCode }).fetch();
 
         } else {
 
@@ -199,10 +199,13 @@ Bazaar.Api.v2.addRoute('cms/validate', {authRequired: true}, {
       const userId = this.request.headers['x-user-id'];
       const authToken = this.request.headers['x-auth-token'];
 
-      // Get existing token
-      const validToken = Meteor.users.findOne({"_id": userId}).services.resume.loginTokens[0].hashedToken;
-
-      if( Accounts._hashLoginToken(authToken) === validToken ) {
+      // Get validTokens
+      const loginTokens = Meteor.users.findOne({"_id": userId}).services.resume.loginTokens;
+      const validTokens = _.map(loginTokens, function (token) {
+        return token.hashedToken;
+      });
+      
+      if( _.contains(validTokens, Accounts._hashLoginToken(authToken)) ) {
         // Get user
         const authenticatedUser = Meteor.users.findOne({"_id": userId});
 
