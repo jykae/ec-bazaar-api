@@ -9,7 +9,9 @@ Bazaar.Api.v2.addRoute('lms/browse', {authRequired: true}, {
         Bazaar.Api.v2.swagger.tags.lms
       ],
       description: "Browse and select material.",
-      parameters: [],
+      parameters: [
+        Bazaar.Api.v2.swagger.params.lmsBrowse
+      ],
       responses: {
         "200": {
           description: "Returns Bazaar browse URL."
@@ -39,7 +41,9 @@ Bazaar.Api.v2.addRoute('lms/view', {authRequired: true}, {
         Bazaar.Api.v2.swagger.tags.lms
       ],
       description: "View material.",
-      parameters: [],
+      parameters: [
+        Bazaar.Api.v2.swagger.params.lmsView
+      ],
       responses: {
         "200": {
           description: "Returns unique Bazaar view URL."
