@@ -1,0 +1,26 @@
+{
+  "metadatas": [
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 1} },
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 2} },
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 3} },
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 4} },
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 5} },
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 6} },
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 7} },
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 8} },
+    {"metadata": {"language": "fi", "educationLevel": 1, "class": 9} },
+    {"metadata": {"language": "global", "subject": "Finnish"} },
+    {"metadata": {"language": "global", "subject": "English"} },
+    {"metadata": {"language": "global", "subject": "Swedish"} },
+    {"metadata": {"language": "global", "subject": "Biology"} },
+    {"metadata": {"language": "global", "subject": "Geography"} },
+    {"metadata": {"language": "global", "subject": "Mathematics"} },
+    {"metadata": {"language": "global", "subject": "Physics"} },
+    {"metadata": {"language": "global", "subject": "Chemistry"} },
+    {"metadata": {"language": "global", "subject": "Religion"} },
+    {"metadata": {"language": "global", "subject": "History"} },
+    {"metadata": {"language": "global", "subject": "Music"} },
+    {"metadata": {"language": "global", "subject": "Visual arts"} },
+    {"metadata": {"language": "global", "subject": "Sports"} }
+  ]
+}
