@@ -36,7 +36,7 @@ Bazaar.Api.v2.addCollection(Materials, {
           Bazaar.Api.v2.swagger.params.material
         ],
         responses: {
-          "200": {
+          "201": {
             description: "Return material that was added."
           }
         }
@@ -204,7 +204,7 @@ Bazaar.Api.v2.addRoute('cms/validate', {authRequired: true}, {
       const validTokens = _.map(loginTokens, function (token) {
         return token.hashedToken;
       });
-      
+
       if( _.contains(validTokens, Accounts._hashLoginToken(authToken)) ) {
         // Get user
         const authenticatedUser = Meteor.users.findOne({"_id": userId});

@@ -292,8 +292,6 @@ Bazaar.Api.v2.swagger.tags = {
   lms: "LMS"
 };
 
-
-
 // Generate Swagger to route /api/v2/swagger.json
 Bazaar.Api.v2.addSwagger('swagger.json');
 

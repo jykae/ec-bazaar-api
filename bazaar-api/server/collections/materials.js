@@ -38,7 +38,7 @@ const MaterialsSchema = {
       },
       "metadata": {
         type: "array",
-        items: {"$ref": "#/definitions/metadata"}
+        items: "string" // Metadata objectID
       },
       "tags": {
         type: "array",
