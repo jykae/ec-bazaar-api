@@ -38,7 +38,11 @@ const MaterialsSchema = {
       },
       "metadata": {
         type: "array",
-        items: "string" // Metadata objectID
+        items: [
+          {
+            type: "string" // Metadata objectID
+          }
+        ]
       },
       "tags": {
         type: "array",
